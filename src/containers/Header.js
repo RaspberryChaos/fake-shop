@@ -1,14 +1,15 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
+import Navbar from "react-bootstrap/Navbar";
 
 const Header = () => {
-    return (
-        <div className="ui fixed menu">
-        <div className="ui container center">
-            <h2>FakeShop</h2>
-        </div>
-            
-        </div>
-    )
-}
+  return (
+    <Navbar bg="light" variant="light" className="mb-5">
+      <Link to={`/`}>
+        <h1 className="heading">FakeShop</h1>
+      </Link>
+    </Navbar>
+  );
+};
 
 export default Header;
