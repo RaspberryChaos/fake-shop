@@ -34,6 +34,7 @@ const ProductDetails = () => {
     return () => {
       dispatch(removeSelectedProduct());
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
 
   return (
@@ -44,7 +45,7 @@ const ProductDetails = () => {
         <Row xs={1} sm={2}>
           <Col>
             <div className="flexCenter">
-              <img src={image} style={{ width: "80%" }} />
+              <img src={image} style={{ width: "80%" }} alt={title} />
             </div>
           </Col>
           <Col>
