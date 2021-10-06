@@ -1,24 +1,15 @@
-import React from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import ProductComponent from "./ProductComponent";
-import { setProducts } from "../redux/actions/productActions";
-
+import { fetchProducts } from "../redux/actions/productActions";
 import Row from "react-bootstrap/Row";
 
 const ProductListing = () => {
   const dispatch = useDispatch();
 
-  const fetchProducts = async () => {
-    const response = await axios
-      .get("https://fakestoreapi.com/products")
-      .catch((error) => {
-        console.log("Error", error);
-      });
-    dispatch(setProducts(response.data));
-  };
-
-  fetchProducts();
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
 
   return (
     <Row xs={1} sm={2} md={4}>
