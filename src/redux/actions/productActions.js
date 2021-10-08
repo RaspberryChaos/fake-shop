@@ -7,7 +7,7 @@ export const fetchProducts = () => async (dispatch) => {
 };
 
 export const fetchProduct = (id) => async (dispatch) => {
-  const response = await fakeShopAPI.get("./products$/{id}");
+  const response = await fakeShopAPI.get(`./products/${id}`);
   dispatch({ type: ActionTypes.SELECTED_PRODUCT, payload: response.data });
 };
 

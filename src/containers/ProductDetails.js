@@ -12,20 +12,18 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
 const ProductDetails = () => {
-  const { productId } = useParams();
-  let product = useSelector((state) => state.product);
+  const product = useSelector((state) => state.product);
   const { image, title, price, category, description } = product;
+  const { productId } = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (productId && productId !== "") {
-      dispatch(fetchProduct(productId));
-    }
+    if (productId && productId !== "") dispatch(fetchProduct(productId));
     return () => {
       dispatch(removeSelectedProduct());
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [productId]);
+  }, []);
 
   return (
     <Container>
